@@ -2,18 +2,30 @@ package model;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
+import java.util.Date;
+
+@ToString
 public class Book {
     @Getter @Setter
-    private int id;
+    private String isbn;
     @Getter @Setter
     private String name;
     @Getter @Setter
-    private int age;
+    private String author;
     @Getter @Setter
-    private String bookClass;
+    private String type;
     @Getter @Setter
-    private int java;
+    private String press;
     @Getter @Setter
-    private int page;
+    private Date date;
+    @Getter @Setter
+    private double price;
+    @Getter @Setter
+    private String cover;
+    @Getter @Setter
+    private String all_scores;
+    @Getter @Setter
+    private String all_comments;
 }

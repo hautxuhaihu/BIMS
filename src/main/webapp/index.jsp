@@ -39,10 +39,10 @@
       </div>
       <s:form role="form" action="loginCheck">
         <div class="form-group">
-          <label for="exampleInputUsername">
-            用户名
+          <label for="exampleInputId">
+            账号
           </label>
-          <input type="text" name="username" class="form-control" id="exampleInputUsername"/>
+          <input type="text" name="id" class="form-control" id="exampleInputId"/>
         </div>
         <div class="form-group">
 
@@ -63,6 +63,8 @@
     </div>
   </div>
 </div>
+
+
 </body>
 </html>
 

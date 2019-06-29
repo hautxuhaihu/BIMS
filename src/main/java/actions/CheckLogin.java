@@ -18,20 +18,20 @@ public class CheckLogin extends ActionSupport implements ModelDriven<User> {
     @Override
     public String execute() throws Exception{
         MyDAOImp myDAOImp=new MyDAOImp();
-        if(myDAOImp.checkLogin(user.getUsername(),user.getPassword())){
+        if(myDAOImp.checkLogin(user.getId(),user.getPassword())){
             session.put("usersession", user);
-            User te = (User)session.get("usersession");
-            System.out.println(te.getUsername());
+            User user = (User)session.get("usersession");
+            System.out.println(user.getId());
             return SUCCESS;
         }else{
-            addActionError(getText("LoginErr", new String[]{user.getUsername(),user.getPassword()}));
+            addActionError(getText("LoginErr", new String[]{user.getId(),user.getPassword()}));
             return "input";
         }
     }
 
     public void validate(){
-        if (user.getUsername().isEmpty()){
-            addFieldError("username",getText("UserNameErr"));//乱码问题todo
+        if (user.getId().isEmpty()){
+            addFieldError("id",getText("idErr"));//乱码问题todo
         }
         if (user.getPassword().isEmpty()){
             addFieldError("password", getText("PassWordErr"));
