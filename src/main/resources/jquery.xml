@@ -5,7 +5,8 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
-    <package name="ajax" extends="json-default" namespace="">
+
+    <package name="ajax" extends="json-default">
         <action name="queryAllPress" class="actions.PressCRUD" method="queryAllPress">
             <result type="json">
 <!--                将allPress列表对象序列化-->

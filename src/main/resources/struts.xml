@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE struts PUBLIC
-        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
+    <constant name="struts.action.excludePattern" value="../webjars/.*?" />
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.custom.i18n.resources" value="globalResource" />
+    <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+
     <package name="BIMS" extends="struts-default">
         <action name="loginCheck" class="actions.CheckLogin">
             <result>/admin/login_suc.jsp</result>
@@ -20,11 +26,14 @@
             <result name="success">/crud/typeCRUD/addTypeSuc.jsp</result>
             <result name="error">/crud/typeCRUD/addTypeFail.jsp</result>
         </action>
-        
-        <action name="addBook" class="actions.BookCRUD" method="addBook">
-            <result name="success">/crud/bookCRUD/addBookSuc.jsp</result>
-            <result name="error">/crud/bookCRUD/addBookFail.jsp</result>
+
+        <action name="*Book" class="actions.BookCRUD" method="{1}">
+            <result name="success">/crud/bookCRUD/{1}BookSuc.jsp</result>
+            <result name="error">/crud/bookCRUD/{1}BookFail.jsp</result>
+            <allowed-methods>add,query</allowed-methods>
         </action>
+        
+
     </package>
     <include file="jquery.xml"/>
 </struts>
