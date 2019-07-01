@@ -10,9 +10,9 @@ import java.util.List;
 @Mapper
 public interface TypeDAOByMybatis {
 
-  @Insert("insert into book_type(name)" + "values(#{type.name})")
+  @Insert("insert into type(name)" + "values(#{type.name})")
   int add(@Param("type") Type type);
 
-  @Select("select * from book_type")
+  @Select("select * from type")
   List<Type> getAll();
 }

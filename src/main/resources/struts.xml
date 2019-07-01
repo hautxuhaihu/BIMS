@@ -30,9 +30,34 @@
         <action name="*Book" class="actions.BookCRUD" method="{1}">
             <result name="success">/crud/bookCRUD/{1}BookSuc.jsp</result>
             <result name="error">/crud/bookCRUD/{1}BookFail.jsp</result>
+            <allowed-methods>add</allowed-methods>
+        </action>
+        <action name="*Score" class="actions.ScoreCRUD" method="{1}">
+            <result name="success">/index.jsp</result>
             <allowed-methods>add,query</allowed-methods>
         </action>
-        
+
+        <action name="queryBook" class="actions.BookCRUD" method="query">
+            <result name="success" type="chain">
+                <param name="actionName">queryAvgScore</param>
+                <param name="allBook">allBook</param>
+            </result>
+        </action>
+        <action name="queryBookDetails" class="actions.BookCRUD" method="queryDatail">
+            <result name="success" type="chain">
+                <param name="actionName">queryComments</param>
+                <param name="book">book</param>
+            </result>
+        </action>
+
+        <action name="queryAvgScore" class="actions.ScoreCRUD" method="queryAvgScore">
+            <result name="success">/crud/bookCRUD/queryBookSuc.jsp</result>
+        </action>
+
+
+        <action name="queryComments" class="actions.CommentCRUD" method="queryComments">
+            <result name="success">/crud/bookCRUD/queryBookDetails.jsp</result>
+        </action>
 
     </package>
     <include file="jquery.xml"/>

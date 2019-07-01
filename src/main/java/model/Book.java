@@ -19,13 +19,11 @@ public class Book {
     @Getter @Setter
     private String press;
     @Getter @Setter
-    private Date date;
+    private String date;
     @Getter @Setter
     private double price;
     @Getter @Setter
     private String cover;
     @Getter @Setter
-    private String all_scores;
-    @Getter @Setter
-    private String all_comments;
+    private int avgScore;
 }

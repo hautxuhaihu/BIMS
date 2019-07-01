@@ -23,7 +23,8 @@
     <s:textfield name="name" label="书名" requiredLabel="true"/>
     <s:textfield name="author" label="作者" requiredLabel="true"/>
     <s:textfield name="price" label="价格" requiredLabel="true"/>
-    <s:textfield name="date" label="日期" type="date" value="%{getText('format.date',{date})}"/>
+<%--    <s:textfield name="date" label="日期" type="date" value="%{getText('format.date',{date})}"/>--%>
+    <s:textfield name="date" label="日期" type="date" />
     <sj:select id="press" name="press" label="出版社" href="%{queryAllPressUrl}"
                list="allPress" listKey="name" listValue="name" headerKey="-1" headerValue="please select"/>
     <sj:select id="type" name="type" label="书籍类型" href="%{queryAllTypeUrl}"
